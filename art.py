@@ -97,3 +97,57 @@ for i, phi in enumerate(angles):
 #                     random.random(),
 #                 ]
 #             )
+
+import bpy
+import numpy as np
+import math
+import random
+
+"""
+radius = [1, 1, 2, 3, 5, 8, 13, 21, 34]
+for rad in radius:    
+    circle_r = rad
+    for i in range(100):
+     # random angle
+         phi = 2 * math.pi * random.random()
+         theta = math.pi * random.random()
+         r = circle_r # random.random()
+
+         x = r * math.sin(phi) * math.cos(theta)
+         y = r * math.sin(phi) * math.sin(theta)
+         z = r * math.cos(phi)
+
+         bpy.ops.mesh.primitive_uv_sphere_add(
+             radius=1,
+             location=[x, y, z]
+         )
+         scale = circle_r / 34
+         bpy.ops.transform.resize(value=[scale, scale, scale])
+"""
+
+"""
+def Curve(x_fn, y_fn, z_fn, t_min, t_max, step):
+    l = np.arange(t_min, t_max + step, step)
+    for i, angle in enumerate(l):
+        scale = i / len(l) # 0.2 if i < len(l) - 1 else 0.5 
+        bpy.ops.mesh.primitive_uv_sphere_add(
+            radius=1,
+            location=[
+                x_fn(angle) * 4,
+                y_fn(angle) * 4,
+                z_fn(angle) * 4,
+            ]
+        )
+        bpy.ops.transform.resize(value=[scale, scale, scale])
+
+# for i, n in enumerate([1, 2, 3, 5, 8, 13, 21]):
+for i, n in enumerate([15, 15, 15, 15, 15, 15, 15, 15]):
+    Curve(
+        lambda t: 4 * t / (math.pi * 2) * math.sin(t + math.pi / 4 * i),
+        lambda t: 4 * t / (math.pi * 2) * math.cos(t + math.pi / 4 * i),
+        lambda id: id,
+        0,
+        math.pi * 2,
+        math.pi / 180 * 10
+    )
+"""
